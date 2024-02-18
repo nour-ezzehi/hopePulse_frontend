@@ -1,0 +1,13 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .custom-height {
+    height: 82vh;
+  }
+}
