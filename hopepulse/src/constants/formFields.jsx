@@ -109,6 +109,27 @@ const campaignFields = [
     isRequired: true,
     placeholder: 'Telephone Number',
   },
+  {
+    id: 'beneficiary',
+    labelText: 'Beneficiary',
+    labelFor: 'beneficiary',
+    name: 'beneficiary',
+    type: 'text',
+    isRequired: true,
+    placeholder: 'Beneficiary',
+  },
+  {
+    id: 'budget',
+    labelText: 'Budget on Target',
+    labelFor: 'budget',
+    name: 'budget',
+    type: 'number',
+    isRequired: true,
+    placeholder: 'Budget on Target',
+  },
 ];
+
+export default campaignFields;
+
 
 export {loginFields, signupFields, campaignFields};

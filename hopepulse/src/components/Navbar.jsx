@@ -64,7 +64,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="py-3">
-        <Link to="login" className="-mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-grayish hover:bg-secondary flex items-center">
+        <Link to="/login" className="-mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-grayish hover:bg-secondary flex items-center">
           <span>Log in</span>
           <span className="ml-1" aria-hidden="true">&#8594;</span>
         </Link>
