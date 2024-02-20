@@ -9,6 +9,8 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import Campaign from './components/Campaign';
 import HowItWorks from './components/HowItWorks';
+import Tutorial from './components/Tutorial';
+import PricingPage from './components/PricingPage';
 
 
 const App = () => {
@@ -22,6 +24,8 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/campaign" element={<Campaign />} />
           <Route path="/howitworks" element={<HowItWorks />} />
+          <Route path="/tutorial" element={<Tutorial />} />
+          <Route path="/pricingpage" element={<PricingPage />} />
         </Routes>
       </BrowserRouter>
       <SmoothScroll />

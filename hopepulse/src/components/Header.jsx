@@ -9,7 +9,10 @@ const Header = () => {
         <header className="bg-fafafa border-double border-grayish rounded-full">
           <Navbar/>
         </header>
-        <SCButton />
+        <div className='mt-48'>
+        <SCButton textColor="primary" heartColor="primary" buttonColor="fafafa" hoverColor="grayish"/>
+        </div>
+
       </div>
       <h1 className="text-3xl font-bold text-fafafa text-center -mt-40">Pulsating Hope, Changing Lives</h1>
     </div>
