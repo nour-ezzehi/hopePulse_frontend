@@ -10,8 +10,8 @@ const Header = () => {
           <Navbar/>
         </header>
         <SCButton />
-        <h1 className="text-3xl font-bold text-fafafa text-center -mt-12">Pulsating Hope, Changing Lives</h1>
       </div>
+      <h1 id="top" className="text-3xl font-bold text-fafafa text-center -mt-40">Pulsating Hope, Changing Lives</h1>
     </div>
   );
 };

@@ -11,3 +11,7 @@ body {
     height: 82vh;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}

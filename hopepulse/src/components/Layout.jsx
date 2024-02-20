@@ -1,12 +1,14 @@
 import React from 'react'
 import HeroSection from './HeroSection'
-import Home from './Home'
+import Footer from './Footer'
+import Header from './Header'
 
 const Layout = () => {
   return (
   <div className="bg-fafafa">
-    <Home />
+    <Header />
     <HeroSection />
+    <Footer />
   </div>
   )
 }

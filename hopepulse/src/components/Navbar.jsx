@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
+import Logo from './Logo';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -41,10 +43,7 @@ const Navbar = () => {
   return (
     <nav className={`flex justify-center items-center space-x-4 px-4 lg:px-8 ${isFixed ? 'fixed top-0 left-0 right-0 bg-fafafa z-50' : 'rounded-full'}`}>
       <div className="flex lg:flex-1 items-center">
-        <a href="#" className="-m-1.5 p-1.5 flex items-center hover:text-secondary text-primary">
-          <img className="h-10 w-auto mr-2" src="../images/logo.png" alt="hopepulse Logo" />
-          <span className="text-2xl font-semibold">hopepulse</span>
-        </a>
+        <Logo />
       </div>
       <div className="flex justify-center lg:justify-end lg:flex-1" ref={dropdownRef}>
         <ul className="flex space-x-4 mr-4">
@@ -64,10 +63,10 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="py-3">
-        <a href="#" className="-mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-grayish hover:bg-secondary flex items-center">
+        <Link to="login" className="-mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-grayish hover:bg-secondary flex items-center">
           <span>Log in</span>
           <span className="ml-1" aria-hidden="true">&#8594;</span>
-        </a>
+        </Link>
       </div>
     </nav>
   );
