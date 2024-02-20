@@ -63,5 +63,52 @@ const signupFields=[
       placeholder:"Confirm Password"   
   },
 ]
+const campaignFields = [
+  {
+    id: 'campaignName',
+    labelText: 'Campaign Name',
+    labelFor: 'campaignName',
+    name: 'campaignName',
+    type: 'text',
+    isRequired: true,
+    placeholder: 'Campaign Name',
+  },
+  {
+    id: 'campaignOwner',
+    labelText: 'Campaign Owner',
+    labelFor: 'campaignOwner',
+    name: 'campaignOwner',
+    type: 'text',
+    isRequired: true,
+    placeholder: 'Campaign Owner',
+  },
+  {
+    id: 'deadline',
+    labelText: 'Deadline',
+    labelFor: 'deadline',
+    name: 'deadline',
+    type: 'date',
+    isRequired: true,
+    placeholder: 'Deadline',
+  },
+  {
+    id: 'campaignDescription',
+    labelText: 'Campaign Description',
+    labelFor: 'campaignDescription',
+    name: 'campaignDescription',
+    type: 'textarea',
+    isRequired: true,
+    placeholder: 'Campaign Description',
+  },
+  {
+    id: 'telephoneNumber',
+    labelText: 'Telephone Number',
+    labelFor: 'telephoneNumber',
+    name: 'telephoneNumber',
+    type: 'tel',
+    isRequired: true,
+    placeholder: 'Telephone Number',
+  },
+];
 
-export {loginFields, signupFields};
+export {loginFields, signupFields, campaignFields};

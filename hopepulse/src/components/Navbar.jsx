@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
 import Logo from './Logo';
 import { Link } from 'react-router-dom';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -58,8 +59,8 @@ const Navbar = () => {
               </div>
             )}
           </li>
-          <li><a href="#" className="text-primary hover:text-grayish">About</a></li>
-          <li><a href="#" className="text-primary hover:text-grayish">How it works</a></li>
+          <li><Link to="/howitworks" className="text-primary hover:text-grayish">How it works</Link></li>
+          <AnchorLink href='#contact'><li><a href="#" className="text-primary hover:text-grayish">Contact</a></li></AnchorLink>
         </ul>
       </div>
       <div className="py-3">

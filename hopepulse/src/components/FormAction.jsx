@@ -10,7 +10,7 @@ const FormAction = ({
           type==='Button' ?
           <button
               type={action}
-              className="group flex mx-auto justify-center py-2 px-6 text-xl font-medium rounded-lg text-fafafa bg-primary hover:bg-secondary focus:outline focus:ring-4 focus:ring-offset-2 focus:ring-secondary mt-6"
+              className="group flex mb-2 mx-auto justify-center py-2 px-6 text-xl font-medium rounded-lg text-fafafa bg-primary hover:bg-secondary focus:outline focus:ring-4 focus:ring-offset-2 focus:ring-secondary mt-6"
               onSubmit={handleSubmit}
           >
 

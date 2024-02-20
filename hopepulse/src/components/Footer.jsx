@@ -45,7 +45,7 @@ const Footer = () => {
           <div className="full border-t border-grayish my-6"></div>
           <div className="flex container md:justify-between items-center text-center mt-8">
             <p className="text-sm text-grayish mr-4">&copy; {new Date().getFullYear()} Your Company, Inc. All rights reserved.</p>
-            <div className="flex space-x-4">
+            <div id="contact" className="flex space-x-4">
               <a href="https://www.facebook.com/nour.zehi.18" className="text-grayish hover:text-primary">
                 <FaFacebook size={20} />
               </a>
