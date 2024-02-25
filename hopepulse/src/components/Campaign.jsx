@@ -33,10 +33,10 @@ const Campaign = () => {
   return (
     <>
       <div className="flex flex-col justify-center container mx-auto">
-        <div className="container mx-auto mt-6 mb-2">
+        <div className="container mx-auto mt-4 mb-2">
             <Logo />
         </div>
-        <div className="w-96 container mx-auto border-2 border-solid my-4 border-primary">
+        <div className="w-96 container mx-auto border-2 border-solid my-18 border-primary">
         <form className="my-4 space-y-6" onSubmit={handleSubmit}>
           <div className="text-center container mx-auto">
             <div className="-space-y-2px">

@@ -1,14 +1,14 @@
 const loginFields=[
   {
-      labelText:"Email address",
-      labelFor:"email-address",
-      id:"email-address",
-      name:"email",
-      type:"email",
-      autoComplete:"email",
-      isRequired:true,
-      placeholder:"Email address"   
-  },
+    labelText:"username",
+    labelFor:"username",
+    id:"username",
+    name:"username",
+    type:"username",
+    autoComplete:"username",
+    isRequired:true,
+    placeholder:"username"   
+},
   {
       labelText:"Password",
       labelFor:"password",
@@ -35,7 +35,7 @@ const signupFields=[
   {
       labelText:"Email address",
       labelFor:"email-address",
-      id:"email-address",
+      id:"email",
       name:"email",
       type:"email",
       autoComplete:"email",
@@ -82,15 +82,7 @@ const campaignFields = [
     isRequired: true,
     placeholder: 'Campaign Owner',
   },
-  {
-    id: 'deadline',
-    labelText: 'Deadline',
-    labelFor: 'deadline',
-    name: 'deadline',
-    type: 'date',
-    isRequired: true,
-    placeholder: 'Deadline',
-  },
+
   {
     id: 'campaignDescription',
     labelText: 'Campaign Description',

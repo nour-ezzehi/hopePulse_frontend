@@ -2,7 +2,7 @@ import React from 'react';
 import { HeartIcon } from '@heroicons/react/24/solid';
 import { Link } from 'react-router-dom';
 
-const SCButton = ({ textColor, buttonColor, hoverColor, heartColor }) => {
+const SCButton = ({ textColor, heartColor, buttonColor, hoverColor }) => {
   // Construct the class names using template literals
   const buttonClassName = `px-2 py-2 text-${textColor} bg-${buttonColor} font-semibold text-xl shadow-md hover:bg-${hoverColor} flex rounded-md`;
 

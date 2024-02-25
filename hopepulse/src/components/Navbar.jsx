@@ -1,10 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
 import Logo from './Logo';
 import { Link } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { AuthContext } from '../contexts/Authcontext';
 
 const Navbar = () => {
+  const { user, logout } = useContext(AuthContext); // Accessing user and logout from AuthContext
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
   const [isFixed, setIsFixed] = useState(false);
@@ -63,12 +65,24 @@ const Navbar = () => {
           <AnchorLink href='#contact'><li><a href="#" className="text-primary hover:text-grayish">Contact</a></li></AnchorLink>
         </ul>
       </div>
-      <div className="py-3">
-        <Link to="/login" className="-mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-grayish hover:bg-secondary flex items-center">
-          <span>Log in</span>
-          <span className="ml-1" aria-hidden="true">&#8594;</span>
-        </Link>
-      </div>
+      {user ? ( // Render logout if user is authenticated
+        <div className="py-3">
+          <Link to="/login">
+          <button onClick={logout} className="-mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-grayish hover:bg-secondary flex items-center">
+            <span>Logout</span>
+            <span className="ml-1" aria-hidden="true">&#8594;</span>
+          </button>
+          </Link>
+
+        </div>
+      ) : ( // Render login if user is not authenticated
+        <div className="py-3">
+          <Link to="/login" className="-mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-grayish hover:bg-secondary flex items-center">
+            <span>Log in</span>
+            <span className="ml-1" aria-hidden="true">&#8594;</span>
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };

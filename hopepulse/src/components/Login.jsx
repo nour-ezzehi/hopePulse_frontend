@@ -1,21 +1,36 @@
-import { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { loginFields } from "../constants/formFields";
 import FormAction from "./FormAction";
 import Input from "./Input";
 import FormExtra from './FormExtra';
+import { AuthContext } from '../contexts/Authcontext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const { login } = useContext(AuthContext);
     const fields=loginFields;
     let fieldsState = {};
     fields.forEach(field=>fieldsState[field.id]='');
     const [loginState,setLoginState]=useState(fieldsState);
+    const navigate = useNavigate();
 
     const handleChange=(e)=>{
         setLoginState({...loginState,[e.target.id]:e.target.value})
     }
 
-    const handleSubmit=(e)=>{
-        e.preventDefault();
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log(loginState)
+      login(loginState)
+      .then(success => {
+        if (success) {
+          navigate('/'); // Redirect to root page after successful login
+        }
+      })
+      .catch(error => {
+        console.error('Login failed:', error);
+        console.log(error.response.data);  // Print the error response data
+      });
     }
 
     return(
