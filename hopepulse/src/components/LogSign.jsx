@@ -12,7 +12,7 @@ const LogSign = ({
           <div className="mb-8">
             <div className="flex justify-center mt-32">
               <Link to="/">
-                <Logo />
+                <Logo scrollToTop={false}/>
               </Link>
             </div>
             <h2 className="mt-2 text-center text-2xl text-grayish">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaTwitter, FaTiktok } from 'react-icons/fa';
 import Logo from './Logo';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Footer = () => {
   return (
@@ -37,9 +38,9 @@ const Footer = () => {
             </ul>
           </div>
           <div className="w-full md:w-1/4 md:text-left flex items-center justify-end">
-            <a href="#">
-            <Logo />
-            </a>
+            <AnchorLink href="#top">
+              <Logo scrollToTop={true}/>
+            </AnchorLink>
           </div>
         </div>
           <div className="full border-t border-grayish my-6"></div>
