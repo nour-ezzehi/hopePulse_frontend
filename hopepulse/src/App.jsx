@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import Campaign from './components/Campaign';
-import HowItWorks from './components/HowItWorks';
+import HowItWorks from './pages/HowItWorks';
 import Tutorial from './components/Tutorial';
 import PricingPage from './components/PricingPage';
 import WhyStartWithUsPage from './pages/WhyStartWithUsPage';
@@ -18,7 +18,7 @@ const App = () => {
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<Layout className="bg-fafafa" />} />
+            <Route path="/" element={<Layout className="bg-white" />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/campaign" element={<Campaign />} />

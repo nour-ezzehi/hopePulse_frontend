@@ -8,7 +8,7 @@ const Layout = () => {
   <div className="bg-fafafa">
     <Header />
     <HeroSection />
-    <Footer />
+    <Footer scrollToTop={true}/>
   </div>
   )
 }

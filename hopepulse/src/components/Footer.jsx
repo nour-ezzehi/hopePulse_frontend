@@ -2,8 +2,9 @@ import React from 'react';
 import { FaFacebook, FaInstagram, FaTwitter, FaTiktok } from 'react-icons/fa';
 import Logo from './Logo';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { Link } from 'react-router-dom';
 
-const Footer = () => {
+const Footer = ({scrollToTop}) => {
   return (
     <div className="w-full mx-auto">
       <footer className="bg-fafafa text-primary p-8 border-t border-grayish"> {/* Added border here */}
@@ -38,9 +39,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="w-full md:w-1/4 md:text-left flex items-center justify-end">
-            <AnchorLink href="#top">
-              <Logo scrollToTop={true}/>
-            </AnchorLink>
+              <Logo scrollToTop={scrollToTop}/>
           </div>
         </div>
           <div className="full border-t border-grayish my-6"></div>
