@@ -22,7 +22,7 @@ const ListBox = ({ selected, setSelected, options, labeltext }) => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Listbox.Options className="mt-1 w-44 rounded-md bg-fafafa py-1 shadow-lg ring-1 ring-grayish ring-opacity-5 focus:outline-none sm:text-sm">
+              <Listbox.Options className="mt-1 w-44 rounded-md max-h-60 bg-fafafa py-1 shadow-lg ring-1 ring-grayish ring-opacity-5 focus:outline-none sm:text-sm overflow-y-auto">
                 {options.map((option) => (
                   <Listbox.Option
                     key={option.id}

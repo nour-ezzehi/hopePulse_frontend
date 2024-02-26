@@ -1,3 +1,4 @@
+// App.js
 import React from 'react';
 import Layout from './components/Layout';
 import SmoothScroll from './components/SmoothScroll';
@@ -8,6 +9,7 @@ import Campaign from './components/Campaign';
 import HowItWorks from './components/HowItWorks';
 import Tutorial from './components/Tutorial';
 import PricingPage from './components/PricingPage';
+import WhyStartWithUsPage from './pages/WhyStartWithUsPage';
 import { AuthProvider } from './contexts/Authcontext';
 
 const App = () => {
@@ -23,6 +25,7 @@ const App = () => {
             <Route path="/howitworks" element={<HowItWorks />} />
             <Route path="/tutorial" element={<Tutorial />} />
             <Route path="/pricingpage" element={<PricingPage />} />
+            <Route path="/why-start-with-us" element={<WhyStartWithUsPage />} /> {/* Add the new route */}
           </Routes>
         </AuthProvider>
       </BrowserRouter>

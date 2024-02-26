@@ -31,52 +31,63 @@ const Campaign = () => {
   };  
 
   return (
-    <>
-      <div className="flex flex-col justify-center container mx-auto">
-        <div className="container mx-auto mt-4 mb-2">
-            <Logo />
+    <div className="flex">
+      <div className="w-2/6 bg-pink-50 h-screen flex flex-col">
+        <div className="flex flex-col text-grayish space-y-2 mt-40 ml-8">
+          <h1 className="text-xl font-normal mb-6">Welcome to hopePulse</h1>
+          <p className="text-2xl font-bold">Initiate Your Adventure for Hope and POSITIVE change </p>
         </div>
-        <div className="w-96 container mx-auto border-2 border-solid m-18 border-primary">
-        <form className="my-4 space-y-6" onSubmit={handleSubmit}>
-          <div className="text-center container mx-auto">
-            <div className="-space-y-2px">
-            {campaignFields.map(field => (
-              field.id === 'campaignDescription' ? null : (
-                <Input
-                  key={field.id}
-                  handleChange={handleChange}
-                  value={campaignInfo[field.id]}
-                  labelText={field.labelText}
-                  labelFor={field.labelFor}
-                  id={field.id}
-                  name={field.name}
-                  type={field.type}
-                  isRequired={field.isRequired}
-                  placeholder={field.placeholder}
-                  customClass="mt-4"
-                />
-              )
-            ))}
-            </div>
+          <div className='ml-8 mt-20'>
+            <Link to="/why-start-with-us" className="text-grayish hover:text-primary text-lg underline">Why Start Your Campaign with Us?</Link>
           </div>
-          <ListBox selected={categorySelected} setSelected={setcategorySelected} options={categories} labeltext="select a category: "/>
-          <ListBox selected={citySelected} setSelected={setcitySelected} options={cities} labeltext="select your city: "/>
-          <TextArea
-              handleChange={handleChange}
-              value={campaignInfo.campaignDescription}
-              labelText="Describe your Campaign:"
-              labelFor="campaignDescription"
-              id="campaignDescription"
-              name="campaignDescription"
-              isRequired={true}
-              placeholder="I am . . ."
-              customClass="mt-4"
-            />
-          <FormAction handleSubmit={handleSubmit} text="Start The Campaign" />
-          </form>
+      </div>
+      <div className='w-4/6'>
+        <div className="flex flex-col mx-auto">
+          <div className="container mx-auto mt-6 ml-6">
+              <Logo />
+          </div>
+          <div className="w-96 mx-auto border-2 border-solid border-primary">
+          <form className="space-y-4 p-2" onSubmit={handleSubmit}>
+            <div className="text-center mx-auto">
+              <div className="-space-y-2px">
+              {campaignFields.map(field => (
+                field.id === 'campaignDescription' ? null : (
+                  <Input
+                    key={field.id}
+                    handleChange={handleChange}
+                    value={campaignInfo[field.id]}
+                    labelText={field.labelText}
+                    labelFor={field.labelFor}
+                    id={field.id}
+                    name={field.name}
+                    type={field.type}
+                    isRequired={field.isRequired}
+                    placeholder={field.placeholder}
+                    customClass=""
+                  />
+                )
+              ))}
+              </div>
+            </div>
+            <ListBox selected={categorySelected} setSelected={setcategorySelected} options={categories} labeltext="select a category: "/>
+            <ListBox selected={citySelected} setSelected={setcitySelected} options={cities} labeltext="select your city: "/>
+            <TextArea
+                handleChange={handleChange}
+                value={campaignInfo.campaignDescription}
+                labelText="Describe your Campaign:"
+                labelFor="campaignDescription"
+                id="campaignDescription"
+                name="campaignDescription"
+                isRequired={true}
+                placeholder="I am . . ."
+                customClass="mt-2"
+              />
+            <FormAction handleSubmit={handleSubmit} text="Start The Campaign" />
+            </form>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
