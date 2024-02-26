@@ -43,7 +43,7 @@ const Campaign = () => {
       </div>
       <div className='w-4/6'>
         <div className="flex flex-col mx-auto">
-          <div className="container mx-auto mt-6 ml-6">
+          <div className="mx-auto mt-6 ml-6">
               <Logo />
           </div>
           <div className="w-96 mx-auto border-2 border-solid border-primary">

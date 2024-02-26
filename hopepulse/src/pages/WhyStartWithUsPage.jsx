@@ -6,7 +6,7 @@ import WhyStartWithUs from '../components/WhyStartWithUs';
 const WhyStartWithUsPage = () => {
   return (
     <>
-      <Navbar />
+      <Navbar scrollToTop={false} />
       <WhyStartWithUs />
       <Footer scrollToTop={false}/>
     </>

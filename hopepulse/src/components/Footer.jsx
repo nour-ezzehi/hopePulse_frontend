@@ -1,8 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaTwitter, FaTiktok } from 'react-icons/fa';
 import Logo from './Logo';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { Link } from 'react-router-dom';
 
 const Footer = ({scrollToTop}) => {
   return (

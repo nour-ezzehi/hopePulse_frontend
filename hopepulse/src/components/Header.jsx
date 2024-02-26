@@ -7,10 +7,10 @@ const Header = () => {
     <div  id="top" className="custom-height bg-cover bg-no-repeat" style={{ backgroundImage: `url('../images/bg-image.png')`}}>
       <div className="mx-auto px-4 py-8">
         <header className="bg-fafafa border-double border-grayish rounded-full">
-          <Navbar/>
+          <Navbar scrollToTop={true} />
         </header>
         <div className='mt-48'>
-        <SCButton textColor="primary" heartColor="primary" buttonColor="fafafa" hoverColor="grayish"/>
+        <SCButton textColor="primary" heartColor="primary" buttonColor="fafafa"/>
         </div>
 
       </div>

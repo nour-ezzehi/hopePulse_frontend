@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { AuthContext } from '../contexts/Authcontext';
 
-const Navbar = () => {
+const Navbar = ({scrollToTop}) => {
   const { user, logout } = useContext(AuthContext); // Accessing user and logout from AuthContext
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
@@ -46,7 +46,7 @@ const Navbar = () => {
   return (
     <nav className={`flex justify-center items-center space-x-4 px-4 lg:px-8 ${isFixed ? 'fixed top-0 left-0 right-0 bg-fafafa z-50' : 'rounded-full'}`}>
       <div className="flex lg:flex-1 items-center">
-        <Logo />
+        <Logo scrollToTop={scrollToTop}/>
       </div>
       <div className="flex justify-center lg:justify-end lg:flex-1" ref={dropdownRef}>
         <ul className="flex space-x-4 mr-4">

@@ -1,6 +1,6 @@
 // App.js
 import React from 'react';
-import Layout from './components/Layout';
+import Layout from './pages/Layout';
 import SmoothScroll from './components/SmoothScroll';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignupPage from './pages/SignupPage';

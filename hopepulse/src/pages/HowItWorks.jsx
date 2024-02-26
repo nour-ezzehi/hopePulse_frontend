@@ -7,7 +7,7 @@ import HowItHome from '../components/HowItHome';
 const HowItWorks = () => {
   return (
     <>
-      <Navbar />
+      <Navbar scrollToTop={false}/>
       <HowItHome />
       <Footer scrollToTop={false}/>
     </>

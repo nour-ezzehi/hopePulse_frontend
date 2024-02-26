@@ -18,7 +18,7 @@ const Signup = () => {
       [e.target.id]: e.target.value
     }));
   };
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(signupState)
