@@ -11,6 +11,7 @@ import Tutorial from './components/Tutorial';
 import PricingPage from './components/PricingPage';
 import WhyStartWithUsPage from './pages/WhyStartWithUsPage';
 import { AuthProvider } from './contexts/Authcontext';
+import CampaignReceivedPage from './pages/CampaignReceivedPage';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="/tutorial" element={<Tutorial />} />
             <Route path="/pricingpage" element={<PricingPage />} />
             <Route path="/why-start-with-us" element={<WhyStartWithUsPage />} /> {/* Add the new route */}
+            <Route path='/CampaignRecieved' element={<CampaignReceivedPage />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
