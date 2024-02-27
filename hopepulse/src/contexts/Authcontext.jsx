@@ -16,9 +16,10 @@ export const AuthProvider = ({ children }) => {
     return new Promise((resolve, reject) => {
       axios.post('http://127.0.0.1:8000/api/login/', credentials)
         .then(response => {
-          const token = response.data.token;
-          localStorage.setItem('token', token);
-          setUser(token); // Or set the user state with user data if it's included in the response
+          const userData = response.data.user;
+          localStorage.setItem('token', response.data.token);
+          setUser(userData);
+          checkAuth(); // Call checkAuth to update user state immediately after login
           resolve(true);
         })
         .catch(error => {
@@ -27,7 +28,6 @@ export const AuthProvider = ({ children }) => {
         });
     });
   };
-
   // Function to handle user logout
   const logout = () => {
     setUser(null);

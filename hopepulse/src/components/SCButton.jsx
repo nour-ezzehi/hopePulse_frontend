@@ -9,7 +9,7 @@ const SCButton = ({ textColor, heartColor, buttonColor}) => {
 
   return (
     <div className="flex justify-start mt-16">
-      <Link to='/campaign'>
+      <Link to='/campaignPage'>
         <button className={buttonClassName}>
           Start Your Campaign<span className="ml-4"><HeartIcon className={`h-8 w-8 text-${heartColor}`} /></span>
         </button>

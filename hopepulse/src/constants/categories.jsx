@@ -1,27 +1,27 @@
 const categories = [
   {
     id: 1,
-    name: 'Emergency',
+    name: 'emergency',
   },
   {
     id: 2,
-    name: 'Medical',
+    name: 'medical',
   },
   {
     id: 3,
-    name: 'Education',
+    name: 'education',
   },
   {
     id: 4,
-    name: 'Environment',
+    name: 'environment',
   },
   {
     id: 5,
-    name: 'Animals',
+    name: 'animals',
   },
   {
     id: 6,
-    name: 'Arts and Culture',
+    name: 'arts and culture',
   },
 ];
 

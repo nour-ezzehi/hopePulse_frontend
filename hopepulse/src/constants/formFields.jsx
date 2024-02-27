@@ -17,7 +17,7 @@ const loginFields=[
       type:"password",
       autoComplete:"current-password",
       isRequired:true,
-      placeholder:"Password"   
+      placeholder:"password"   
   }
 ]
 
@@ -30,7 +30,7 @@ const signupFields=[
       type:"text",
       autoComplete:"username",
       isRequired:true,
-      placeholder:"Username"   
+      placeholder:"username"   
   },
   {
       labelText:"Email address",
@@ -40,7 +40,7 @@ const signupFields=[
       type:"email",
       autoComplete:"email",
       isRequired:true,
-      placeholder:"Email address"   
+      placeholder:"email address"   
   },
   {
       labelText:"Password",
@@ -50,7 +50,7 @@ const signupFields=[
       type:"password",
       autoComplete:"current-password",
       isRequired:true,
-      placeholder:"Password"   
+      placeholder:"password"   
   },
   {
       labelText:"Confirm Password",
@@ -60,33 +60,24 @@ const signupFields=[
       type:"password",
       autoComplete:"confirm-password",
       isRequired:true,
-      placeholder:"Confirm Password"   
+      placeholder:"confirm password"   
   },
 ]
 const campaignFields = [
   {
-    id: 'campaignName',
+    id: 'name',
     labelText: 'Campaign Name',
-    labelFor: 'campaignName',
-    name: 'campaignName',
+    labelFor: 'name',
+    name: 'name', // Change 'name' to 'name'
     type: 'text',
     isRequired: true,
     placeholder: 'Campaign Name',
   },
   {
-    id: 'campaignDescription',
-    labelText: 'Campaign Description',
-    labelFor: 'campaignDescription',
-    name: 'campaignDescription',
-    type: 'textarea',
-    isRequired: true,
-    placeholder: 'Campaign Description',
-  },
-  {
-    id: 'telephoneNumber',
+    id: 'telephone_number',
     labelText: 'Telephone Number',
     labelFor: 'telephoneNumber',
-    name: 'telephoneNumber',
+    name: 'telephone_number', // Change 'telephoneNumber' to 'telephone_number'
     type: 'tel',
     isRequired: true,
     placeholder: 'Telephone Number',

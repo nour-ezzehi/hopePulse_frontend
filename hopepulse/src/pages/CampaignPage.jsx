@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import FormAction from '../components/FormAction';
@@ -9,36 +9,50 @@ import { campaignFields } from '../constants/formFields';
 import Input from '../components/Input';
 import { cities } from '../constants/cities';
 import TextArea from '../components/TextArea';
+import { AuthContext } from '../contexts/Authcontext';
 
-const Campaign = () => {
+const CampaignPage = () => {
   const [categorySelected, setCategorySelected] = useState(categories[0]);
   const [citySelected, setCitySelected] = useState(cities[0]);
-  const [formData, setFormData] = useState({
-    campaignName: '',
-    campaignDescription: '',
-    telephoneNumber: '',
-    beneficiary: '',
-    budget: '',
+  const [campaignFieldsState, setCampaignFieldsState] = useState(() => {
+    const initialState = {};
+    campaignFields.forEach(field => initialState[field.id] = '');
+    return initialState;
   });
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData({ ...formData, [id]: value });
+    setCampaignFieldsState({ ...campaignFieldsState, [id]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log('User:', user);
       const data = {
-        ...formData,
+        ...campaignFieldsState,
         category: categorySelected.name,
         city: citySelected.name,
+        owner: user.username,
       };
-
-      const response = await axios.post('http://127.0.0.1:8000/api/campaigns/', data);
+      console.log('Data:', data);
+  
+      // Get the token from localStorage
+      const token = localStorage.getItem('token');
+  
+      // Set the headers with the authentication token
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+  
+      // Make the POST request with the authentication token included in the headers
+      const response = await axios.post('http://127.0.0.1:8000/api/campaigns/', data, config);
       console.log('Campaign created:', response.data);
-      navigate('/campaignReceived')
+      navigate('/campaignRecieved');
       // Optionally, you can redirect the user to a different page after successful submission
     } catch (error) {
       console.error('Error creating campaign:', error);
@@ -71,7 +85,7 @@ const Campaign = () => {
                     <Input
                       key={field.id}
                       handleChange={handleChange}
-                      value={formData[field.id]}
+                      value={campaignFieldsState[field.id]}
                       labelText={field.labelText}
                       labelFor={field.labelFor}
                       id={field.id}
@@ -88,11 +102,11 @@ const Campaign = () => {
               <ListBox selected={citySelected} setSelected={setCitySelected} options={cities} labeltext="Select your city: " />
               <TextArea
                 handleChange={handleChange}
-                value={formData.campaignDescription}
+                value={campaignFieldsState.campaignDescription}
                 labelText="Describe your Campaign:"
                 labelFor="campaignDescription"
-                id="campaignDescription"
-                name="campaignDescription"
+                id="story"
+                name="story"
                 isRequired={true}
                 placeholder="I am . . ."
                 customClass="mt-2"
@@ -109,4 +123,4 @@ const Campaign = () => {
   );
 };
 
-export default Campaign;
+export default CampaignPage;
