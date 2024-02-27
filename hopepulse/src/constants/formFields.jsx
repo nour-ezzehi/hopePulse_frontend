@@ -74,16 +74,6 @@ const campaignFields = [
     placeholder: 'Campaign Name',
   },
   {
-    id: 'campaignOwner',
-    labelText: 'Campaign Owner',
-    labelFor: 'campaignOwner',
-    name: 'campaignOwner',
-    type: 'text',
-    isRequired: true,
-    placeholder: 'Campaign Owner',
-  },
-
-  {
     id: 'campaignDescription',
     labelText: 'Campaign Description',
     labelFor: 'campaignDescription',
@@ -120,8 +110,5 @@ const campaignFields = [
     placeholder: 'Budget on Target',
   },
 ];
-
-export default campaignFields;
-
 
 export {loginFields, signupFields, campaignFields};

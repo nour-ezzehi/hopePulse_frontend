@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import FormAction from './FormAction';
-import ListBox from './ListBox'; // Import the ListBox component
-import Logo from './Logo';
+import FormAction from '../components/FormAction';
+import ListBox from '../components/ListBox'; // Import the ListBox component
+import Logo from '../components/Logo';
 import { categories } from '../constants/categories';
 import { campaignFields } from '../constants/formFields';
-import Input from './Input';
+import Input from '../components/Input';
 import { cities } from '../constants/cities';
-import TextArea from './TextArea';
+import TextArea from '../components/TextArea';
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -43,13 +43,12 @@ const Campaign = () => {
       </div>
       <div className='w-4/6'>
         <div className="flex flex-col mx-auto">
-          <div className="mx-auto mt-6 ml-6">
+          <div className="mx-auto mt-8 ml-6 mb-8">
               <Logo />
           </div>
           <div className="w-96 mx-auto border-2 border-solid border-primary">
           <form className="space-y-4 p-2" onSubmit={handleSubmit}>
-            <div className="text-center mx-auto">
-              <div className="-space-y-2px">
+            <div className="mx-auto -mt-2">
               {campaignFields.map(field => (
                 field.id === 'campaignDescription' ? null : (
                   <Input
@@ -67,7 +66,6 @@ const Campaign = () => {
                   />
                 )
               ))}
-              </div>
             </div>
             <ListBox selected={categorySelected} setSelected={setcategorySelected} options={categories} labeltext="select a category: "/>
             <ListBox selected={citySelected} setSelected={setcitySelected} options={cities} labeltext="select your city: "/>
@@ -82,7 +80,9 @@ const Campaign = () => {
                 placeholder="I am . . ."
                 customClass="mt-2"
               />
-            <FormAction handleSubmit={handleSubmit} text="Start The Campaign" />
+              <div className='mb-4'>
+                <FormAction handleSubmit={handleSubmit} text="Start The Campaign"/>
+              </div>
             </form>
           </div>
         </div>

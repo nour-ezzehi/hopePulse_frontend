@@ -34,7 +34,7 @@ const Login = () => {
     }
 
     return(
-        <form className="w-full mt-8 space-y-6 mx-auto" onSubmit={handleSubmit}>
+        <form className="w-full mt-8 space-y-4 mx-auto" onSubmit={handleSubmit}>
         <div className="-space-y-px">
             {
                 fields.map(field=>

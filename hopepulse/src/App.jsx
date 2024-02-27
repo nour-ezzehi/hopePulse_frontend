@@ -5,7 +5,7 @@ import SmoothScroll from './components/SmoothScroll';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
-import Campaign from './components/Campaign';
+import Campaign from './pages/CampaignPage';
 import HowItWorks from './pages/HowItWorks';
 import Tutorial from './components/Tutorial';
 import PricingPage from './components/PricingPage';
