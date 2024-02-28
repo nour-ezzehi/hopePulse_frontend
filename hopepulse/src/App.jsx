@@ -10,7 +10,7 @@ import Tutorial from './components/Tutorial';
 import PricingPage from './components/PricingPage';
 import WhyStartWithUsPage from './pages/WhyStartWithUsPage';
 import { AuthProvider } from './contexts/Authcontext';
-import CampaignPage from './pages/CampaignPage';
+import CampaignPage from './pages/CampaignsPage';
 import CampaignRecievedPage from './pages/CampaignRecievedPage';
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
             <Route path="/" element={<Layout className="bg-white" />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/campaignPage" element={<CampaignPage />} />
+            <Route path="/campaignsPage" element={<CampaignPage />} />
             <Route path="/howitworks" element={<HowItWorks />} />
             <Route path="/tutorial" element={<Tutorial />} />
             <Route path="/pricingpage" element={<PricingPage />} />

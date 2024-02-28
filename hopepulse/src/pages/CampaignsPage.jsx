@@ -11,7 +11,7 @@ import { cities } from '../constants/cities';
 import TextArea from '../components/TextArea';
 import { AuthContext } from '../contexts/Authcontext';
 
-const CampaignPage = () => {
+const CampaignsPage = () => {
   const [categorySelected, setCategorySelected] = useState(categories[0]);
   const [citySelected, setCitySelected] = useState(cities[0]);
   const [campaignFieldsState, setCampaignFieldsState] = useState(() => {
@@ -123,4 +123,4 @@ const CampaignPage = () => {
   );
 };
 
-export default CampaignPage;
+export default CampaignsPage;

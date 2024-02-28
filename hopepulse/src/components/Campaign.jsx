@@ -43,6 +43,15 @@ const Campaign = () => {
                 {campaign.category === 'environment' && (
                 <img src="../images/save-nature.png" alt="Environment Icon" className="w-6 h-6 mt-2 mr-2" />
               )}
+              {campaign.category === 'education' && (
+                <img src="../images/mortarboard.png" alt="Education Icon" className="w-6 h-6 mt-2 mr-2" />
+              )}
+              {campaign.category === 'emergency' && (
+                <img src="../images/alarm.png" alt="Emergency Icon" className="w-6 h-6 mt-2 mr-2" />
+              )}
+              {campaign.category === 'arts and culture' && (
+                <img src="../images/art.png" alt="Arts and Culture Icon" className="w-6 h-6 mt-2 mr-2" />
+              )}
               </div>
               <p className="text-gray-600 mb-6">{campaign.story}</p>
               <div className="flex justify-between">
