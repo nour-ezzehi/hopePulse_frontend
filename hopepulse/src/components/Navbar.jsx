@@ -4,9 +4,10 @@ import Logo from './Logo';
 import { Link } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { AuthContext } from '../contexts/Authcontext';
+import UserAvatarDropdown from './UserAvatarDropdown'; // Import UserAvatarDropdown component
 
-const Navbar = ({scrollToTop}) => {
-  const { user, logout } = useContext(AuthContext); // Accessing user and logout from AuthContext
+const Navbar = ({ scrollToTop }) => {
+  const { user, logout } = useContext(AuthContext);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
   const [isFixed, setIsFixed] = useState(false);
@@ -65,17 +66,11 @@ const Navbar = ({scrollToTop}) => {
           <AnchorLink href='#contact'><li><a href="#" className="text-primary hover:text-grayish">Contact</a></li></AnchorLink>
         </ul>
       </div>
-      {user ? ( // Render logout if user is authenticated
-        <div className="py-3">
-          <Link to="/login">
-          <button onClick={logout} className="-mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-grayish hover:bg-secondary flex items-center">
-            <span>Logout</span>
-            <span className="ml-1" aria-hidden="true">&#8594;</span>
-          </button>
-          </Link>
-
+      {user ? (
+        <div className="p-4">
+          <UserAvatarDropdown userName={user.username} logout={logout} /> {/* Pass the logout function to UserAvatarDropdown */}
         </div>
-      ) : ( // Render login if user is not authenticated
+      ) : (
         <div className="py-3">
           <Link to="/login" className="-mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-grayish hover:bg-secondary flex items-center">
             <span>Log in</span>

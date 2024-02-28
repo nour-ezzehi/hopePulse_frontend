@@ -11,7 +11,7 @@ export default {
         secondary: '#aad573',
         grayish: '#36454F',
         fafafa: '#fafafa',
-        third: '#d2cad1',
+        third: '#3195B0',
       },
     },
   },
