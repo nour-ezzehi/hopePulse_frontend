@@ -29,7 +29,7 @@ const App = () => {
             <Route path="/pricingpage" element={<PricingPage />} />
             <Route path="/why-start-with-us" element={<WhyStartWithUsPage />} /> {/* Add the new route */}
             <Route path='/campaignRecieved' element={<CampaignRecievedPage />} />
-            <Route path='/singlecampaignPage' element={<SingleCampaignPage />} />
+            <Route path="/campaign/:id" element={<SingleCampaignPage />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>

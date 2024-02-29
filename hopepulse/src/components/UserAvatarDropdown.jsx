@@ -40,12 +40,12 @@ const UserAvatarDropdown = ({ userName, logout }) => {
         <span className="ml-2">{userName}</span>
       </button>
       {showDropdown && ( // Display the dropdown only if showDropdown is true
-        <div className="absolute right-0 mt-px w-32 bg-fafafa border rounded-lg shadow-lg">
+        <div className="absolute right-0 mt-px w-40 bg-fafafa border rounded-lg shadow-lg">
           <button onClick={handleProfileClick} className="block w-full py-2 px-4 text-left text-grayish hover:bg-secondary">
-            Profile
+          <img src='../images/resume.png' alt="Resume Icon" className="w-4 -ml-2 h-4 inline-block" /> profile
           </button>
-          <button onClick={handleLogout} className="block w-full py-2 px-4 text-left text-grayish hover:bg-red-400">
-            Logout
+          <button onClick={handleLogout} className="block w-full py-2 px-4 text-left text-grayish hover:bg-red-300">
+          <img src='../images/logout.png' alt="Logout Icon" className="w-4 h-4 -ml-2 inline-block" /> Sign Out
           </button>
         </div>
       )}
