@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for programmatic navigation
 
-const Campaign = ({ campaign, cardClassName, titleClassName, categoryIconClassName, descriptionClassName, detailsClassName, labelClassName, phoneNumberClassName }) => {
+const Campaign = ({ campaign, cardClassName, titleClassName, categoryIconClassName, descriptionClassName, detailsClassName, labelClassName, phoneNumberClassName, hoverClassName }) => {
   const { id, name, category, story, telephone_number } = campaign;
   const navigate = useNavigate(); // Initialize useNavigate hook
+  const [isHovered, setIsHovered] = useState(false);
 
   // Function to handle click on a campaign
   const handleCampaignClick = () => {
@@ -12,7 +13,12 @@ const Campaign = ({ campaign, cardClassName, titleClassName, categoryIconClassNa
   };
 
   return (
-    <div className={`cursor-pointer ${cardClassName} hover:bg-gray-100`} onClick={handleCampaignClick}>
+    <div 
+      className={`cursor-pointer ${cardClassName} ${isHovered ? hoverClassName : ''}`} 
+      onMouseEnter={() => setIsHovered(true)} 
+      onMouseLeave={() => setIsHovered(false)} 
+      onClick={handleCampaignClick}
+    >
       <div className="content">
         <h3 className={titleClassName}>{name}</h3>
         <div className={categoryIconClassName}>
@@ -39,7 +45,7 @@ const Campaign = ({ campaign, cardClassName, titleClassName, categoryIconClassNa
         </div>
         <p className={descriptionClassName}>{story}</p>
         <div className={detailsClassName}>
-          <p className={labelClassName}>Telephone Number:</p>
+          <p className={labelClassName}><img src='../images/phone-call.png' alt="Phone Icon" className="w-4 -mt-1 mr-2 h-4 inline-block" />Telephone Number:</p>
           <p className={phoneNumberClassName}>{telephone_number}</p>
         </div>
       </div>

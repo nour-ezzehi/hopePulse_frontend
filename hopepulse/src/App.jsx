@@ -13,6 +13,7 @@ import { AuthProvider } from './contexts/Authcontext';
 import CampaignPage from './pages/CampaignsPage';
 import CampaignRecievedPage from './pages/CampaignRecievedPage';
 import SingleCampaignPage from './pages/SingleCampaignPage';
+import ForIndividualsPage from './pages/ForIndividualsPage';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/why-start-with-us" element={<WhyStartWithUsPage />} /> {/* Add the new route */}
             <Route path='/campaignRecieved' element={<CampaignRecievedPage />} />
             <Route path="/campaign/:id" element={<SingleCampaignPage />} />
+            <Route path="/forIndividualsPage" element={<ForIndividualsPage />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>

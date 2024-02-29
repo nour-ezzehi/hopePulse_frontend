@@ -58,7 +58,7 @@ const Navbar = ({ scrollToTop }) => {
             {showDropdown && (
               <div className="absolute z-10 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">
                 <a href="#" className="block px-4 py-2 text-md text-grayish hover:bg-secondary"> <img src='../images/heart.png' alt="Heart Icon" className="w-4 -mt-1 mr-2 h-4 inline-block" />Charities</a>
-                <a href="#" className="block px-4 py-2 text-md text-grayish hover:bg-secondary"> <img src='../images/donation.png' alt="Heart Icon" className="w-4 -mt-1 mr-2 h-4 inline-block" />Individuals</a>
+                <Link to="/forIndividualsPage" className="block px-4 py-2 text-md text-grayish hover:bg-secondary"> <img src='../images/donation.png' alt="Heart Icon" className="w-4 -mt-1 mr-2 h-4 inline-block" />Individuals</Link>
               </div>
             )}
           </li>

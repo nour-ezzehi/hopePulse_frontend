@@ -12,6 +12,7 @@ export default {
         grayish: '#36454F',
         fafafa: '#fafafa',
         third: '#3195B0',
+        fourth: '#072608',
       },
     },
   },

@@ -1,13 +1,13 @@
 import React from 'react'
-import HeroSection from '../components/HeroSection'
+import Home from '../components/Home'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 const Layout = () => {
   return (
-  <div className="bg-fafafa">
+  <div className="">
     <Header />
-    <HeroSection />
+    <Home/>
     <Footer scrollToTop={true}/>
   </div>
   )
