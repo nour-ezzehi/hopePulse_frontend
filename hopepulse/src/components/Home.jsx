@@ -5,6 +5,7 @@ import Campaign from './Campaign'; // Import the Campaign component
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for programmatic navigation
 import { Link } from 'react-router-dom';
 import SCButton from './SCButton';
+import DonateFor from './DonateFor';
 
 const Home = () => {
   const [campaigns, setCampaigns] = useState([]);
@@ -55,8 +56,9 @@ const Home = () => {
 
   // Render the Home component
   return (
-    <div className='mb-40'>
-    <div className='flex flex-col container mt-12 ml-12 mb-8 w-3/4'>
+    <>
+    <div className='flex flex-row w-4/5 mb-40'>
+    <div className='mt-12 ml-12 mb-8'>
       <h1 className='text-3xl mb-8 font-semibold'>Discover these campaigns, be a hope Ambassador. Donate now!</h1>
       <div className='bg-fafafa flex flex-col space-y-8'>
         {/* Render campaigns using the Campaign component */}
@@ -97,12 +99,16 @@ const Home = () => {
         </div>
       </div>
     </div>
+    <div className='w-1/5 mt-12'>
+    <DonateFor />
+      </div>
+    </div>
     <div className='my-20 p-40 bg-third'>
-      <h1 className='text-5xl font-bold mb-10 text-fafafa'>🌟 Why Choose hopepulse?</h1>
+      <h1 className='text-4xl font-bold mb-10 text-fafafa'>🌟 Why Choose hopepulse?</h1>
       <div className="">
         <ol className="flex flex-col space-y-6 text-fafafa">
-          <li className='text-4xl font-semibold'>Our team of heart-driven experts stands by your side, ensuring every campaign is infused with empathy and purpose.</li>
-          <li className='text-4xl font-semibold'>With our user-friendly interface, donating or fundraising becomes as effortless as a gentle breeze.</li>
+          <li className='text-3xl font-semibold'>Our team of heart-driven experts stands by your side, ensuring every campaign is infused with empathy and purpose.</li>
+          <li className='text-3xl font-semibold'>With our user-friendly interface, donating or fundraising becomes as effortless as a gentle breeze.</li>
           <p className="text-xl">Looking for extra insight? View our <Link className="hover:text-grayish underline underline-offset-1" to="/tutorial">tutorial on writing a moving fundraiser story</Link></p>
         </ol>
         <SCButton textColor="third" heartColor="third" buttonColor="fafafa"/>
@@ -114,8 +120,8 @@ const Home = () => {
         <div className='border-b-2 border-third flex flex-row items-center'>
           <div className='mr-20 py-8'>
             <Link to="/campaignsPage">
-              <li className='text-4xl font-semibold mb-8 text-grayish'>Fundraise for yourself</li>
-              <p className='text-3xl font-normal text-grayish'>Start a campaign for yourself, ask for help and let people give you a hand.</p>
+              <li className='text-2xl font-semibold mb-8 text-grayish'>Fundraise for yourself</li>
+              <p className='text-xl font-normal text-grayish'>Start a campaign for yourself, ask for help and let people give you a hand.</p>
             </Link>
           </div>
           <img src='../images/next.png' alt="Next Icon" className="w-8 h-8 ml-auto" /> {/* Use ml-auto to push the icon to the right */}
@@ -123,15 +129,15 @@ const Home = () => {
         <div className='border-b-2 border-third flex flex-row items-center'>
           <div className='mr-20 py-8'>
             <Link to="/campaignsPage">
-              <li className='text-4xl font-semibold text-grayish mb-8'>Fundraise for someone who needs our help</li>
-              <p className='text-3xl font-normal text-grayish'>Start a campaign for a beneficiary and raise funds for them.</p>
+              <li className='text-2xl font-semibold text-grayish mb-8'>Fundraise for someone who needs our help</li>
+              <p className='text-xl font-normal text-grayish'>Start a campaign for a beneficiary and raise funds for them.</p>
             </Link>
           </div>
           <img src='../images/next.png' alt="Next Icon" className="w-8 h-8 ml-auto" /> {/* Use ml-auto to push the icon to the right */}
         </div>
         <div className='border-b-2 border-third flex flex-row items-center'>
           <div className='mr-20 py-8'>
-            <li className='text-4xl font-semibold text-grayish mb-8'>Fundraise for charity</li>
+            <li className='text-2xl font-semibold text-grayish mb-8'>Fundraise for charity</li>
             <p className='text-xl font-normal text-grayish'><a href="#contact" className='underline hover:text-primary'>Contact us </a>if u have a charity.</p>
           </div>
           <img src='../images/next.png' alt="Next Icon" className="w-8 h-8 ml-auto" /> {/* Use ml-auto to push the icon to the right */}
@@ -139,17 +145,17 @@ const Home = () => {
       </ol>
     </div>
     <div className='my-20 p-40 bg-third'>
-      <h1 className='text-5xl font-bold mb-10 text-fafafa'>🚀 Our Promise to You:</h1>
+      <h1 className='text-3xl font-bold mb-10 text-fafafa'>🚀 Our Promise to You:</h1>
       <div className="">
         <ol className="flex flex-col space-y-6 text-fafafa">
-          <li className='text-4xl font-semibold'>When you raise funds on Hopepulse, you’re not just collecting dollars; you’re weaving a tapestry of hope.</li>
-          <li className='text-4xl font-semibold'>Together, we’ll create ripples of change that echo across time and touch countless lives.</li>
-          <li className="text-4xl font-semibold">Every donation is a brushstroke, painting a brighter future for someone in need.</li>
+          <li className='text-3xl font-semibold'>When you raise funds on hopepulse, you’re not just collecting dollars; you’re weaving a tapestry of hope.</li>
+          <li className='text-3xl font-semibold'>Together, we’ll create ripples of change that echo across time and touch countless lives.</li>
+          <li className="text-3xl font-semibold">Every donation is a brushstroke, painting a brighter future for someone in need.</li>
         </ol>
         <SCButton textColor="third" heartColor="third" buttonColor="fafafa"/>
       </div>
     </div>
-    </div>
+    </>
   );
 };
 

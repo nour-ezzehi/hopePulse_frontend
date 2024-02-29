@@ -45,7 +45,7 @@ const Navbar = ({ scrollToTop }) => {
   }, [isFixed]);
 
   return (
-    <nav className={`flex justify-center items-center space-x-4 px-4 lg:px-8 ${isFixed ? 'fixed top-0 left-0 right-0 bg-fafafa z-50' : 'rounded-full'}`}>
+    <nav className={`flex justify-center items-center space-x-4 px-4 lg:px-8 ${isFixed ? 'fixed top-0 left-0 right-0 bg-fafafa z-50': 'bg-fafafa rounded-full'}`}>
       <div className="flex lg:flex-1 items-center">
         <Logo scrollToTop={scrollToTop}/>
       </div>
