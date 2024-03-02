@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate for progra
 import { Link } from 'react-router-dom';
 import SCButton from './SCButton';
 import DonateFor from './DonateFor';
+import FundraiseForAnyone from './FundraiseForAnyone';
+import WhyChooseHopepulse from './WhyChooseHopepulse';
 
 const Home = () => {
   const [campaigns, setCampaigns] = useState([]);
@@ -103,47 +105,8 @@ const Home = () => {
     <DonateFor />
       </div>
     </div>
-    <div className='my-20 p-40 bg-third'>
-      <h1 className='text-4xl font-bold mb-10 text-fafafa'>🌟 Why Choose hopepulse?</h1>
-      <div className="">
-        <ol className="flex flex-col space-y-6 text-fafafa">
-          <li className='text-3xl font-semibold'>Our team of heart-driven experts stands by your side, ensuring every campaign is infused with empathy and purpose.</li>
-          <li className='text-3xl font-semibold'>With our user-friendly interface, donating or fundraising becomes as effortless as a gentle breeze.</li>
-          <p className="text-xl">Looking for extra insight? View our <Link className="hover:text-grayish underline underline-offset-1" to="/tutorial">tutorial on writing a moving fundraiser story</Link></p>
-        </ol>
-        <SCButton textColor="third" heartColor="third" buttonColor="fafafa"/>
-      </div>
-    </div>
-    <div className='my-20 bg-white container mx-auto'>
-      <h1 className='text-2xl mb-8 font-bold'>Start your campaign for anyone</h1>
-      <ol className="flex flex-col space-y-6">
-        <div className='border-b-2 border-third flex flex-row items-center'>
-          <div className='mr-20 py-8'>
-            <Link to="/campaignsPage">
-              <li className='text-2xl font-semibold mb-8 text-grayish'>Fundraise for yourself</li>
-              <p className='text-xl font-normal text-grayish'>Start a campaign for yourself, ask for help and let people give you a hand.</p>
-            </Link>
-          </div>
-          <img src='../images/next.png' alt="Next Icon" className="w-8 h-8 ml-auto" /> {/* Use ml-auto to push the icon to the right */}
-        </div>
-        <div className='border-b-2 border-third flex flex-row items-center'>
-          <div className='mr-20 py-8'>
-            <Link to="/campaignsPage">
-              <li className='text-2xl font-semibold text-grayish mb-8'>Fundraise for someone who needs our help</li>
-              <p className='text-xl font-normal text-grayish'>Start a campaign for a beneficiary and raise funds for them.</p>
-            </Link>
-          </div>
-          <img src='../images/next.png' alt="Next Icon" className="w-8 h-8 ml-auto" /> {/* Use ml-auto to push the icon to the right */}
-        </div>
-        <div className='border-b-2 border-third flex flex-row items-center'>
-          <div className='mr-20 py-8'>
-            <li className='text-2xl font-semibold text-grayish mb-8'>Fundraise for charity</li>
-            <p className='text-xl font-normal text-grayish'><a href="#contact" className='underline hover:text-primary'>Contact us </a>if u have a charity.</p>
-          </div>
-          <img src='../images/next.png' alt="Next Icon" className="w-8 h-8 ml-auto" /> {/* Use ml-auto to push the icon to the right */}
-        </div>
-      </ol>
-    </div>
+    <WhyChooseHopepulse />
+    <FundraiseForAnyone />
     <div className='my-20 p-40 bg-third'>
       <h1 className='text-3xl font-bold mb-10 text-fafafa'>🚀 Our Promise to You:</h1>
       <div className="">

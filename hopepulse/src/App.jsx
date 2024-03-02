@@ -14,6 +14,7 @@ import CampaignPage from './pages/CampaignsPage';
 import CampaignRecievedPage from './pages/CampaignRecievedPage';
 import SingleCampaignPage from './pages/SingleCampaignPage';
 import ForIndividualsPage from './pages/ForIndividualsPage';
+import CategoryPageWrapper from './pages/CategoryPageWrapper';
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<Layout className="bg-white" />} />
+            <Route path="/" element={<Layout />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/campaignsPage" element={<CampaignPage />} />
@@ -32,6 +33,7 @@ const App = () => {
             <Route path='/campaignRecieved' element={<CampaignRecievedPage />} />
             <Route path="/campaign/:id" element={<SingleCampaignPage />} />
             <Route path="/forIndividualsPage" element={<ForIndividualsPage />} />
+            <Route path="category/:category" element={<CategoryPageWrapper/>} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
