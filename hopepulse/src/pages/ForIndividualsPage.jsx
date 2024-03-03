@@ -18,16 +18,7 @@ const ForIndividualsPage = () => {
 
 useEffect(() => {
   const fetchCampaignsData = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        // Handle token not found
-        return;
-      }
       const response = await axios.get(`http://127.0.0.1:8000/api/campaigns/?page=${currentPage}`, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
       });
       
       // Ensure that response.data.results is an array
@@ -38,10 +29,6 @@ useEffect(() => {
       } else {
         console.error('Campaigns data is not an array:', response.data);
       }
-    } catch (error) {
-      // Handle error
-      console.error('Error:', error);
-    }
   };
 
     fetchCampaignsData();
