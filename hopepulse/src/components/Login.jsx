@@ -12,6 +12,7 @@ const Login = () => {
     let fieldsState = {};
     fields.forEach(field=>fieldsState[field.id]='');
     const [loginState,setLoginState]=useState(fieldsState);
+    const [ActivationLoginError, setActivationLoginError] = useState(null);
     const navigate = useNavigate();
 
     const handleChange=(e)=>{
@@ -30,10 +31,16 @@ const Login = () => {
       .catch(error => {
         console.error('Login failed:', error);
         console.log(error.response.data);  // Print the error response data
+        if (error.response && error.response.data && error.response.data.detail === "No active account found with the given credentials") {
+          setActivationLoginError("No active account found with the given credentials. Please check your email to activate your account.");
+      } else {
+          setActivationLoginError("An error occurred while logging in. Please try again later.");
+      }
       });
     }
 
     return(
+      <div>
         <form className="w-full mt-8 space-y-4 mx-auto" onSubmit={handleSubmit}>
         <div className="-space-y-px">
             {
@@ -56,6 +63,8 @@ const Login = () => {
         <FormExtra/>
         <FormAction handleSubmit={handleSubmit} text="Login"/>
       </form>
+      {ActivationLoginError && <div className="text-red-500">{ActivationLoginError}</div>}
+      </div>
     );
 };
 export default Login;
