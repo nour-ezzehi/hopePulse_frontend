@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
       axios.post('http://127.0.0.1:8000/api/login/', credentials)
         .then(response => {
           const userData = response.data.user;
+          console.log(userData)
           localStorage.setItem('token', response.data.token);
           setUser(userData);
           checkAuth(); // Call checkAuth to update user state immediately after login
@@ -70,6 +71,7 @@ export const AuthProvider = ({ children }) => {
     checkAuth();
   }, []);
 
+  console.log(user)
   // The context value that will be provided to components
   const contextValue = {
     user,

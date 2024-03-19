@@ -5,6 +5,8 @@ import Input from "./Input";
 import FormExtra from './FormExtra';
 import { AuthContext } from '../contexts/Authcontext';
 import { useNavigate } from 'react-router-dom';
+import ActivationErrorModal from './ActivationErrorModal';
+import axios from 'axios';
 
 const Login = () => {
     const { login } = useContext(AuthContext);
@@ -12,6 +14,7 @@ const Login = () => {
     let fieldsState = {};
     fields.forEach(field=>fieldsState[field.id]='');
     const [loginState,setLoginState]=useState(fieldsState);
+    const [activationLoginError, setActivationLoginError] = useState(false);
     const navigate = useNavigate();
 
     const handleChange=(e)=>{
@@ -30,10 +33,30 @@ const Login = () => {
       .catch(error => {
         console.error('Login failed:', error);
         console.log(error.response.data);  // Print the error response data
+        if (error.response && error.response.data && error.response.data.detail === "No active account found with the given credentials") {
+          setActivationLoginError("No active account found with the given credentials. Please check your email to activate your account.");
+      } else {
+          setActivationLoginError("An error occurred while logging in. Please try again later.");
+      }
       });
     }
 
+    const handleResendActivation = async () => {
+      const { email } = loginState;
+      try {
+        await axios.post('http://127.0.0.1:8000/auth/users/resend_activation/', {
+          email: email
+        });
+        // Success message or further action (optional)
+        console.log('Activation email resent successfully.');
+        // Call the onResend callback to perform any additional actions after resend
+      } catch (error) {
+        console.error('Error resending activation email:', error);
+      }
+    };
+
     return(
+      <div>
         <form className="w-full mt-8 space-y-4 mx-auto" onSubmit={handleSubmit}>
         <div className="-space-y-px">
             {
@@ -56,6 +79,14 @@ const Login = () => {
         <FormExtra/>
         <FormAction handleSubmit={handleSubmit} text="Login"/>
       </form>
+      {activationLoginError && (
+        <ActivationErrorModal
+          message={activationLoginError}
+          onClose={() => setActivationLoginError(false)}
+          onResend={handleResendActivation}
+        />
+      )}
+      </div>
     );
 };
 export default Login;
