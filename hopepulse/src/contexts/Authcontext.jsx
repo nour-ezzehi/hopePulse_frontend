@@ -6,7 +6,6 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     
-  const API_URL = 'http://localhost:8000'
   // State to manage the user data
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -15,12 +14,11 @@ export const AuthProvider = ({ children }) => {
   // Function to handle user login
   const login = (credentials) => {
     return new Promise((resolve, reject) => {
-      axios.post(`http://127.0.0.1:8000/auth/jwt/create/`, credentials)
+      axios.post('http://127.0.0.1:8000/api/login/', credentials)
         .then(response => {
           const userData = response.data.user;
-          console.log('Response data:', response.data); // Log the entire response data
-          const token = response.data.access; // Extract token from the 'access' field
-          localStorage.setItem('token', token); // Store the token in local storage
+          console.log(userData)
+          localStorage.setItem('token', response.data.token);
           setUser(userData);
           checkAuth(); // Call checkAuth to update user state immediately after login
           resolve(true);
@@ -73,6 +71,7 @@ export const AuthProvider = ({ children }) => {
     checkAuth();
   }, []);
 
+  console.log(user)
   // The context value that will be provided to components
   const contextValue = {
     user,

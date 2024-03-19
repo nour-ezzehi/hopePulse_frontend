@@ -1,7 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { UserInformationsContext } from '../contexts/UserInformationsContext';
+import { useContext } from 'react';
 
 const FundraiseForAnyone = () => {
+  const { userInfo } = useContext(UserInformationsContext);
+  
+  if (!userInfo || userInfo.role === 'donor') {
+    return null;
+  }
+
   return (
     <div className='my-20 bg-white container mx-auto'>
       <h1 className='text-2xl mb-8 font-bold'>Start your campaign for anyone</h1>

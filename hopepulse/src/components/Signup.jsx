@@ -22,11 +22,17 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(signupState)
-    axios.post('http://127.0.0.1:8000/api/signup/', signupState)
+    axios.post('http://127.0.0.1:8000/auth/users/', signupState)
       .then(response => {
         console.log('Signup successful:', response.data);
         console.log(signupState)
-        navigate('/login'); // Redirect to login page after successful signup
+        if (response.data && response.data.user_is_active) {
+          console.log('Account activated. Redirecting to login page.');
+          navigate('/login'); // Redirect to login page after successful signup
+        } else {
+          console.log('Account activation pending. Redirecting to pending activation page.');
+          navigate('/pending-activation'); // Redirect to pending activation page
+        }
       })
       .catch(error => {
         console.error('Signup failed:', error.response.data);

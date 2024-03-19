@@ -5,6 +5,8 @@ import Input from "./Input";
 import FormExtra from './FormExtra';
 import { AuthContext } from '../contexts/Authcontext';
 import { useNavigate } from 'react-router-dom';
+import ActivationErrorModal from './ActivationErrorModal';
+import axios from 'axios';
 
 const Login = () => {
     const { login } = useContext(AuthContext);
@@ -12,7 +14,7 @@ const Login = () => {
     let fieldsState = {};
     fields.forEach(field=>fieldsState[field.id]='');
     const [loginState,setLoginState]=useState(fieldsState);
-    const [ActivationLoginError, setActivationLoginError] = useState(null);
+    const [activationLoginError, setActivationLoginError] = useState(false);
     const navigate = useNavigate();
 
     const handleChange=(e)=>{
@@ -39,6 +41,20 @@ const Login = () => {
       });
     }
 
+    const handleResendActivation = async () => {
+      const { email } = loginState;
+      try {
+        await axios.post('http://127.0.0.1:8000/auth/users/resend_activation/', {
+          email: email
+        });
+        // Success message or further action (optional)
+        console.log('Activation email resent successfully.');
+        // Call the onResend callback to perform any additional actions after resend
+      } catch (error) {
+        console.error('Error resending activation email:', error);
+      }
+    };
+
     return(
       <div>
         <form className="w-full mt-8 space-y-4 mx-auto" onSubmit={handleSubmit}>
@@ -63,7 +79,13 @@ const Login = () => {
         <FormExtra/>
         <FormAction handleSubmit={handleSubmit} text="Login"/>
       </form>
-      {ActivationLoginError && <div className="text-red-500">{ActivationLoginError}</div>}
+      {activationLoginError && (
+        <ActivationErrorModal
+          message={activationLoginError}
+          onClose={() => setActivationLoginError(false)}
+          onResend={handleResendActivation}
+        />
+      )}
       </div>
     );
 };

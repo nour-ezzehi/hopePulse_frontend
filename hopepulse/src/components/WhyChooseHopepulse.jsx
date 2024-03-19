@@ -1,8 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom' 
 import SCButton from './SCButton'
+import { UserInformationsContext } from '../contexts/UserInformationsContext';
+import { useContext } from 'react';
 
 const WhyChooseHopepulse = () => {
+  const { userInfo } = useContext(UserInformationsContext);
+  if (!userInfo || userInfo.role === 'donor') {
+    return null;
+  }
+
+
   return (
     <div className='my-20 p-40 bg-third'>
       <h1 className='text-4xl font-bold mb-10 text-fafafa'>🌟 Why Choose hopepulse?</h1>

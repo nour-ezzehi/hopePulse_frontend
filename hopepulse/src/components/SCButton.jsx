@@ -2,10 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { HeartIcon } from '@heroicons/react/24/solid';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserInformationsContext } from '../contexts/UserInformationsContext';
 
 const SCButton = ({ textColor, heartColor, buttonColor}) => {
+  const { userInfo } = useContext(UserInformationsContext);
   // Construct the class names using template literals
   const buttonClassName = `px-2 py-2 text-${textColor} bg-${buttonColor} font-semibold text-xl shadow-md flex rounded-md hover:bg-grayish`;
+
+  console.log(userInfo)
+  if (!userInfo || userInfo.role === 'donor') {
+    return null;
+  }
 
   return (
     <div className="flex justify-start mt-16">
