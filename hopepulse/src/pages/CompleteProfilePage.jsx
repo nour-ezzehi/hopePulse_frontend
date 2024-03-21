@@ -18,11 +18,11 @@ const CompleteProfilePage = () => {
   const userEmail = userInfo ? userInfo.email : '';
   const [profileState, setProfileState] = useState({
     ...initialFieldsState,
-    email: userEmail,
+    email: userInfo ? userInfo.email : "",
     role: userInfo && userInfo.role || 'donor',
 
   });
-
+console.log(userEmail)
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

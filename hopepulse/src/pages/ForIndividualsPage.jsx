@@ -22,7 +22,6 @@ useEffect(() => {
       });
       
       if (Array.isArray(response.data.results)) {
-        console.log(response.data.results)
         setCampaigns(response.data.results);
         setTotalPages(response.data.total_pages);
       } else {
