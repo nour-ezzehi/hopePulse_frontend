@@ -36,7 +36,6 @@ const Signup = () => {
       })
       .catch(error => {
         console.error('Signup failed:', error.response.data);
-        // Handle signup failure, display error message to the user
       });
   }
 

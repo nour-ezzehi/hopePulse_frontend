@@ -47,9 +47,6 @@ const Login = () => {
         await axios.post('http://127.0.0.1:8000/auth/users/resend_activation/', {
           email: email
         });
-        // Success message or further action (optional)
-        console.log('Activation email resent successfully.');
-        // Call the onResend callback to perform any additional actions after resend
       } catch (error) {
         console.error('Error resending activation email:', error);
       }

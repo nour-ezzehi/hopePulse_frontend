@@ -1,17 +1,20 @@
-import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import FormAction from '../components/FormAction';
 import ListBox from '../components/ListBox';
-import Logo from '../components/Logo';
 import { categories } from '../constants/categories';
 import { campaignFields } from '../constants/formFields';
 import Input from '../components/Input';
 import { cities } from '../constants/cities';
 import TextArea from '../components/TextArea';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import WhyChooseHopepulse from '../components/WhyChooseHopepulse';
 import { AuthContext } from '../contexts/Authcontext';
 
-const CampaignsPage = () => {
+const UpdateCampaignPage = () => {
+  const { id } = useParams();
   const [categorySelected, setCategorySelected] = useState(categories[0]);
   const [citySelected, setCitySelected] = useState(cities[0]);
   const [campaignFieldsState, setCampaignFieldsState] = useState(() => {
@@ -19,35 +22,66 @@ const CampaignsPage = () => {
     campaignFields.forEach(field => initialState[field.id] = '');
     return initialState;
   });
-  const navigate = useNavigate();
+
+  const navigate = useNavigate()
   const { user } = useContext(AuthContext);
+
+
+  useEffect(() => {
+    const fetchCampaignData = async () => {
+      try {
+        const response = await axios.get(`http://127.0.0.1:8000/api/campaigns/${id}`);
+        const campaignData = response.data;
+        // Set campaign data to state
+        setCampaignFieldsState({
+          ...campaignFieldsState,
+          ...campaignData,
+        });
+        setCampaignFieldsState(prevState => ({
+          ...prevState,
+          campaignDescription: campaignData.story
+        }));
+        
+        const selectedCategory = categories.find(category => category.name === campaignData.category);
+        const selectedCity = cities.find(city => city.name === campaignData.city);
+        setCategorySelected(selectedCategory || categories[0]);
+        setCitySelected(selectedCity || cities[0]);
+      } catch (error) {
+        console.error('Error fetching campaign data:', error);
+      }
+    };
+
+    fetchCampaignData();
+  }, [id]);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
     setCampaignFieldsState({ ...campaignFieldsState, [id]: value });
+
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log('User:', user);
       const data = {
         ...campaignFieldsState,
         category: categorySelected.name,
         city: citySelected.name,
-        owner: user.username,
+        owner: user.id,
       };
-      // Get the token from localStorage
-      const token = localStorage.getItem('token');
   
-      // Set the headers with the authentication token
+      const token = localStorage.getItem('token');
+
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       };
-  
-      // Make the POST request with the authentication token included in the headers
-      const response = await axios.post('http://127.0.0.1:8000/api/campaigns/', data, config);
+
+      const response = await axios.put(`http://127.0.0.1:8000/api/campaigns/${id}/`, data, config);
+
+      console.log('Campaign updated:', response.data);
       navigate('/campaignRecieved');
     } catch (error) {
       console.error('Error creating campaign:', error);
@@ -57,7 +91,8 @@ const CampaignsPage = () => {
 
   return (
     <>
-    <div className="flex">
+    <Navbar scrollToTop={false} />
+    <div className="flex mb-6">
       <div className="w-2/6 h-screen bg-pink-50 flex flex-col">
         <div className="flex flex-col text-grayish space-y-2 mt-40 ml-8">
           <h1 className="text-xl font-normal mb-6">Welcome to hopePulse</h1>
@@ -67,11 +102,8 @@ const CampaignsPage = () => {
           <Link to="/why-start-with-us" className="text-grayish hover:text-primary text-lg underline">Why Start Your Campaign with Us?</Link>
         </div>
       </div>
-      <div className='w-4/6 bg-fafafa'>
-        <div className="flex flex-col mx-auto">
-          <div className="mx-auto mt-8 ml-6 mb-8">
-            <Logo />
-          </div>
+      <div className='w-4/6 bg-white'>
+        <div className="flex flex-col mx-auto mt-12">
           <div className="w-96 mx-auto border-2 border-solid border-primary">
             <form className="space-y-4 p-2" onSubmit={handleSubmit}>
               <div className="mx-auto -mt-2">
@@ -100,22 +132,24 @@ const CampaignsPage = () => {
                 value={campaignFieldsState.campaignDescription}
                 labelText="Describe your Campaign:"
                 labelFor="campaignDescription"
-                id="story"
-                name="story"
+                id="campaignDescription" // Update the id to match the campaign description field
+                name="campaignDescription" // Update the name to match the campaign description field
                 isRequired={true}
-                placeholder="I am . . ."
+                placeholder={campaignFieldsState.campaignDescription || "Enter campaign description..."} // Set the placeholder to the campaign description or a default message
                 customClass="mt-2"
               />
               <div className='mb-4'>
-                <FormAction handleSubmit={handleSubmit} text="Start The Campaign" />
+                <FormAction handleSubmit={handleSubmit} text="Update your Campaign" />
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
+    <WhyChooseHopepulse />
+    <Footer scrollToTop={false}/>
     </>
   );
 };
 
-export default CampaignsPage;
+export default UpdateCampaignPage;

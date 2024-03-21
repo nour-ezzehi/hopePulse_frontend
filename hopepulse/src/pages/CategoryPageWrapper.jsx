@@ -6,7 +6,6 @@ import Footer from '../components/Footer';
 
 const CategoryPageWrapper = () => {
   const { category } = useParams();
-  console.log(category)
   return (
     <>
       <Navbar scrollToTop={false} />

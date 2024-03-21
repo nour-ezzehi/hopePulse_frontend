@@ -13,7 +13,7 @@ const TextArea = ({
 }) => {
   return (
     <div className= "flex items-center text-center">
-      <label htmlFor={labelFor} className="block text-md ml-2 font-medium text-grayish">
+      <label htmlFor={labelFor} className="block text-md ml-4 font-medium text-grayish">
         {labelText}
       </label>
       <textarea

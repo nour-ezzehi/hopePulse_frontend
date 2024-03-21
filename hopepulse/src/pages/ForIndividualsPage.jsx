@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import Campaign from '../components/Campaign'
 import axios from 'axios'
 import FundraiseForAnyone from '../components/FundraiseForAnyone'
-  // Function to handle click on a campaign
+
 const ForIndividualsPage = () => {
 
   const [campaigns, setCampaigns] = useState([]);
@@ -21,7 +21,6 @@ useEffect(() => {
       const response = await axios.get(`http://127.0.0.1:8000/api/campaigns/?page=${currentPage}`, {
       });
       
-      // Ensure that response.data.results is an array
       if (Array.isArray(response.data.results)) {
         console.log(response.data.results)
         setCampaigns(response.data.results);
@@ -35,7 +34,6 @@ useEffect(() => {
   }, [currentPage]);
 
   const handleCampaignClick = (id) => {
-    // Redirect to the single campaign page with the campaign ID
     navigate(`/campaign/${id}`);
   };
 
@@ -50,7 +48,6 @@ useEffect(() => {
           <div className='mt-12 ml-12 mb-8'>
             <h1 className='text-3xl mb-8 font-semibold'>Discover these campaigns, be a hope Ambassador. Donate now!</h1>
             <div className='bg-fafafa flex flex-col space-y-8'>
-              {/* Render campaigns using the Campaign component */}
               {campaigns.map(campaign => (
                 <Campaign
                   key={campaign.id}

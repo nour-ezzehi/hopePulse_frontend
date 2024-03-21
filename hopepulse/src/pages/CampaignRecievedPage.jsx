@@ -14,7 +14,6 @@ const CampaignRecievedPage = () => {
       try {
         const token = localStorage.getItem('token');
         if (!token) {
-          // Token not found, handle appropriately
           return;
         }
 

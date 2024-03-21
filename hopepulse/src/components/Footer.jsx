@@ -19,18 +19,9 @@ const Footer = ({scrollToTop}) => {
             </ul>
           </div>
           <div className="w-full md:w-1/4 text-center md:text-left">
-            <h2 className="text-lg font-bold mb-2">Solutions</h2>
-            <ul className="list-none">
-              <li><a href="/marketing" className="text-grayish hover:text-primary block py-1">Marketing</a></li>
-              <li><a href="/analytics" className="text-grayish hover:text-primary block py-1">Analytics</a></li>
-              <li><a href="/commerce" className="text-grayish hover:text-primary block py-1">Commerce</a></li>
-              <li><a href="/insights" className="text-grayish hover:text-primary block py-1">Insights</a></li>
-            </ul>
-          </div>
-          <div className="w-full md:w-1/4 text-center md:text-left">
             <h2 className="text-lg font-bold mb-2">Support</h2>
             <ul className="list-none">
-              <li><a href="/pricing" className="text-grayish hover:text-primary block py-1">Pricing</a></li>
+              <li><a href="/pricing" className="text-grayish hover:text-primary block py-1">HowItWorks</a></li>
               <li><a href="/documentation" className="text-grayish hover:text-primary block py-1">Documentation</a></li>
               <li><a href="/guides" className="text-grayish hover:text-primary block py-1">Guides</a></li>
               <li><a href="/api-status" className="text-grayish hover:text-primary block py-1">API Status</a></li>

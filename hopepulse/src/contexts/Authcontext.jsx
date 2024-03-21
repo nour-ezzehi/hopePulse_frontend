@@ -11,7 +11,6 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   
 
-  // Function to handle user login
   const login = (credentials) => {
     return new Promise((resolve, reject) => {
       axios.post('http://127.0.0.1:8000/api/login/', credentials)
@@ -48,9 +47,6 @@ export const AuthProvider = ({ children }) => {
             Authorization: `Bearer ${token}`,
           },
         });
-
-        
-
         setUser(response.data.user);
       }
     } catch (error) {
@@ -65,14 +61,11 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Run checkAuth on component mount
   useEffect(() => {
     
     checkAuth();
   }, []);
 
-  console.log(user)
-  // The context value that will be provided to components
   const contextValue = {
     user,
     login,

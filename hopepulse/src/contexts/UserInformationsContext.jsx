@@ -21,7 +21,6 @@ export const UserInformationsProvider = ({ children }) => {
       try {
         if (user) {
           const token = localStorage.getItem('token');
-          console.log(user.id)
           const response = await axios.get(`http://127.0.0.1:8000/api/users/${user.id}/`, {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -36,7 +35,6 @@ export const UserInformationsProvider = ({ children }) => {
 
     fetchUserInformation(); // Fetch user information on component mount
   }, [user]); // Re-run effect whenever the user changes
-  console.log(user)
 
   return (
     <UserInformationsContext.Provider value={{userInfo, loading}}>

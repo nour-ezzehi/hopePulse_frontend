@@ -68,7 +68,7 @@ const campaignFields = [
     id: 'name',
     labelText: 'Campaign Name',
     labelFor: 'name',
-    name: 'name', // Change 'name' to 'name'
+    name: 'name',
     type: 'text',
     isRequired: true,
     placeholder: 'Campaign Name',
@@ -77,7 +77,7 @@ const campaignFields = [
     id: 'telephone_number',
     labelText: 'Telephone Number',
     labelFor: 'telephoneNumber',
-    name: 'telephone_number', // Change 'telephoneNumber' to 'telephone_number'
+    name: 'telephone_number',
     type: 'tel',
     isRequired: true,
     placeholder: 'Telephone Number',

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; // Import useEffect from React
+import React, { useEffect } from 'react';
 
 const SmoothScroll = () => {
   useEffect(() => {
@@ -15,9 +15,9 @@ const SmoothScroll = () => {
     };
 
     smoothScroll();
-  }, []); // Add an empty dependency array to useEffect
+  }, []);
 
-  return null; // SmoothScroll doesn't render anything
+  return null;
 };
 
 export default SmoothScroll;

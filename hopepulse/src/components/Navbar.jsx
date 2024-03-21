@@ -5,12 +5,20 @@ import { Link } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { AuthContext } from '../contexts/Authcontext';
 import UserAvatarDropdown from './UserAvatarDropdown'; // Import UserAvatarDropdown component
+import { UserInformationsContext } from '../contexts/UserInformationsContext';
 
 const Navbar = ({ scrollToTop }) => {
+  const { userInfo } = useContext(UserInformationsContext);
   const { user, logout } = useContext(AuthContext);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
   const [isFixed, setIsFixed] = useState(false);
+  const [isProfileComplete, setIsProfileComplete] = useState(false);
+
+  useEffect(() => {
+    setIsProfileComplete(userInfo && userInfo.profile_complete);
+  }, [userInfo]);
+
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -67,9 +75,16 @@ const Navbar = ({ scrollToTop }) => {
         </ul>
       </div>
       {user ? (
-        <div className="p-4">
-          <UserAvatarDropdown userName={user.username} logout={logout} /> {/* Pass the logout function to UserAvatarDropdown */}
-        </div>
+         <div className="flex items-center">
+         <div className="p-4">
+           <UserAvatarDropdown userName={user.username} logout={logout} />
+         </div>
+         {userInfo && userInfo.profile_complete ? (
+           <span className="text-green-500"></span>
+         ) : (
+           <span className="text-red-500 text-4xl font-bold">!!</span>
+         )}
+       </div>
       ) : (
         <div className="py-3">
           <Link to="/login" className="-mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-grayish hover:bg-secondary flex items-center">

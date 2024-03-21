@@ -28,10 +28,7 @@ const CategoryPage = ({ category }) => {
   }, [currentPage, category, token]);
 
 
-  // Function to handle clicks on campaign items
   const handleCampaignClick = (campaignId) => {
-    // Define the logic to handle clicks on campaign items
-    console.log('Campaign clicked:', campaignId);
     navigate(`/campaign/${id}`);
   };
 
@@ -41,7 +38,6 @@ const CategoryPage = ({ category }) => {
         <div className='mt-12 ml-12 mb-8'>
           <h1 className='text-3xl mb-8 font-semibold'>Discover these campaigns, be a hope Ambassador. Donate now!</h1>
           <div className='bg-fafafa flex flex-col space-y-8'>
-            {/* Render campaigns using the Campaign component */}
             {campaigns.map(campaign => (
               <Campaign
                 key={campaign.id}
