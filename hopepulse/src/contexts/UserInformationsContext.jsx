@@ -33,8 +33,8 @@ export const UserInformationsProvider = ({ children }) => {
       }
     };
 
-    fetchUserInformation(); // Fetch user information on component mount
-  }, [user]); // Re-run effect whenever the user changes
+    fetchUserInformation();
+  }, []); // Re-run effect whenever the user changes
 
   return (
     <UserInformationsContext.Provider value={{userInfo, loading}}>
