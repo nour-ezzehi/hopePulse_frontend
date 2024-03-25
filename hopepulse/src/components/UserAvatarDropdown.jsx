@@ -39,7 +39,7 @@ const UserAvatarDropdown = ({ userName, logout }) => {
           <Link to={userInfo && userInfo.profile_complete ? "ProfilePage" : "CompleteProfile"}>
             <button className="block w-full py-2 px-4 text-left text-grayish hover:bg-secondary">
               <img src="../images/resume.png" alt="Resume Icon" className="w-4 -ml-2 h-4 inline-block" />
-              <span className="ml-2">{userInfo && userInfo.profile_complete ? "Profile" : <span className="text-red-500 font-bold">Profile</span>}</span>
+              <span className="ml-2">{userInfo && userInfo.profile_complete ? "Profile" : <span className="text-red-500 font-bold">Profile !!</span>}</span>
             </button>
           </Link>
           <button onClick={handleLogout} className="block w-full py-2 px-4 text-left text-grayish hover:bg-red-300">

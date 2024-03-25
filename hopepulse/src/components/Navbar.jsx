@@ -76,13 +76,14 @@ const Navbar = ({ scrollToTop }) => {
       </div>
       {user ? (
          <div className="flex items-center">
-         <div className="p-4">
-           <UserAvatarDropdown userName={user.username} logout={logout} />
-         </div>
+          <div className="relative group py-4">
+            <UserAvatarDropdown userName={user.username} logout={logout} />
+            <span className="absolute bottom-0 right-0 bg-gray-800 text-white text-xs px-1 py-0.5 rounded opacity-0 transition-opacity duration-300 group-hover:opacity-100">Account</span>
+          </div>
          {userInfo && userInfo.profile_complete ? (
            <span className="text-green-500"></span>
          ) : (
-           <span className="text-red-500 text-4xl font-bold">!!</span>
+           <span className="text-red-500 text-4xl font-bold"></span>
          )}
        </div>
       ) : (
