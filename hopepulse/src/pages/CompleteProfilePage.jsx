@@ -16,13 +16,13 @@ const CompleteProfilePage = () => {
   const { userInfo } = useContext(UserInformationsContext);
   const userId = userInfo ? userInfo.id : '';
   const userEmail = userInfo ? userInfo.email : '';
+  console.log(userEmail)
   const [profileState, setProfileState] = useState({
     ...initialFieldsState,
-    email: userInfo ? userInfo.email : "",
+    email: userInfo ? userEmail : "",
     role: userInfo && userInfo.role || 'donor',
-
   });
-console.log(userEmail)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

@@ -10,12 +10,12 @@ const Footer = ({scrollToTop}) => {
           <div className="w-full md:w-1/4 text-center md:text-left">
             <h2 className="text-lg font-bold mb-2">Fundraise for</h2>
             <ul className="list-none">
-              <li><a href="/emergency" className="text-grayish hover:text-primary block py-1">Emergency</a></li>
-              <li><a href="/medical" className="text-grayish hover:text-primary block py-1">Medical</a></li>
-              <li><a href="/education" className="text-grayish hover:text-primary block py-1">Education</a></li>
-              <li><a href="/environment" className="text-grayish hover:text-primary block py-1">Environment</a></li>
-              <li><a href="/animals" className="text-grayish hover:text-primary block py-1">Animals</a></li>
-              <li><a href="/jobs" className="text-grayish hover:text-primary block py-1">Arts and Culture</a></li>
+              <li><a href="/category/emergency" className="text-grayish hover:text-primary block py-1">Emergency</a></li>
+              <li><a href="/category/medical" className="text-grayish hover:text-primary block py-1">Medical</a></li>
+              <li><a href="/category/education" className="text-grayish hover:text-primary block py-1">Education</a></li>
+              <li><a href="/category/environment" className="text-grayish hover:text-primary block py-1">Environment</a></li>
+              <li><a href="/category/animals" className="text-grayish hover:text-primary block py-1">Animals</a></li>
+              <li><a href="/category/jobs" className="text-grayish hover:text-primary block py-1">Arts and Culture</a></li>
             </ul>
           </div>
           <div className="w-full md:w-1/4 text-center md:text-left">
