@@ -51,8 +51,7 @@ const UserAvatarDropdown = ({ userName, logout }) => {
               <span className='ml-2'> My Campaigns </span>
             </button>
           </Link>
-)}
-
+      )}
         </div>
       )}
     </div>
