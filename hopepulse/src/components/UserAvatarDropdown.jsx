@@ -42,6 +42,13 @@ const UserAvatarDropdown = ({ userName, logout }) => {
               <span className="ml-2">{userInfo && userInfo.profile_complete ? "Profile" : <span className="text-red-500 font-bold">Profile !!</span>}</span>
             </button>
           </Link>
+          {userInfo.role == 'campaign_creator' && (
+          <Link to='/myCampaigns'>
+            <button className="block w-full py-2 px-4 text-left text-grayish hover:bg-primary">
+              <span className='ml-2'> My Campaigns </span>
+            </button>
+          </Link>
+      )}
           <button onClick={handleLogout} className="block w-full py-2 px-4 text-left text-grayish hover:bg-red-300">
           <img src='../images/logout.png' alt="Logout Icon" className="w-4 h-4 -ml-2 inline-block" /> <span className='ml-2'> Sign Out </span>
           </button>
