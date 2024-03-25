@@ -19,6 +19,7 @@ import PendingActivationPage from './pages/PendingActivationPage';
 import { UserInformationsProvider } from './contexts/UserInformationsContext';
 import CompleteProfilePage from './pages/CompleteProfilePage';
 import ProfilePage from './pages/ProfilePage';
+import MyCampaignsPage from  './pages/MyCampaignsPage';
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
               <Route path="/pending-activation" element={<PendingActivationPage />} />
               <Route path="/completeProfile" element={<CompleteProfilePage />} />
               <Route path="/ProfilePage" element={<ProfilePage />} />
+              <Route path="/MyCampaigns" element={<MyCampaignsPage />} />
             </Routes>
           </UserInformationsProvider>
         </AuthProvider>
