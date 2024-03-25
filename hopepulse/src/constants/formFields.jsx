@@ -74,15 +74,6 @@ const campaignFields = [
     placeholder: 'Campaign Name',
   },
   {
-    id: 'telephone_number',
-    labelText: 'Telephone Number',
-    labelFor: 'telephoneNumber',
-    name: 'telephone_number',
-    type: 'tel',
-    isRequired: true,
-    placeholder: 'Telephone Number',
-  },
-  {
     id: 'beneficiary',
     labelText: 'Beneficiary',
     labelFor: 'beneficiary',
@@ -92,13 +83,13 @@ const campaignFields = [
     placeholder: 'Beneficiary',
   },
   {
-    id: 'budget',
-    labelText: 'Budget on Target',
+    id: 'goal',
+    labelText: "budget",
     labelFor: 'budget',
-    name: 'budget',
+    name: 'goal',
     type: 'number',
     isRequired: true,
-    placeholder: 'Budget on Target',
+    placeholder: "Campaign's goal",
   },
 ];
 
