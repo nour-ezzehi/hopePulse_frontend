@@ -36,7 +36,7 @@ const UserAvatarDropdown = ({ userName, logout }) => {
       </button>
       {showDropdown && ( // Display the dropdown only if showDropdown is true
         <div className="absolute right-0 mt-px w-40 bg-fafafa border rounded-lg shadow-lg">
-          <Link to={userInfo && userInfo.profile_complete ? "ProfilePage" : "CompleteProfile"}>
+          <Link to={userInfo && userInfo.profile_complete ? "/ProfilePage" : "/CompleteProfile"}>
             <button className="block w-full py-2 px-4 text-left text-grayish hover:bg-secondary">
               <img src="../images/resume.png" alt="Resume Icon" className="w-4 -ml-2 h-4 inline-block" />
               <span className="ml-2">{userInfo && userInfo.profile_complete ? "Profile" : <span className="text-red-500 font-bold">Profile !!</span>}</span>
@@ -45,6 +45,7 @@ const UserAvatarDropdown = ({ userName, logout }) => {
           {userInfo.role == 'campaign_creator' && (
           <Link to='/myCampaigns'>
             <button className="block w-full py-2 px-4 text-left text-grayish hover:bg-primary">
+              <img src="../images/marketing.png" alt="Resume Icon" className="w-4 -ml-2 h-4 inline-block" />
               <span className='ml-2'> My Campaigns </span>
             </button>
           </Link>

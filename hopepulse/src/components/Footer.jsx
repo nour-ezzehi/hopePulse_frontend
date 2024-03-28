@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaTwitter, FaTiktok } from 'react-icons/fa';
 import Logo from './Logo';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = ({scrollToTop}) => {
   return (
@@ -35,17 +35,14 @@ const Footer = ({scrollToTop}) => {
           <div className="flex container md:justify-between items-center text-center mt-8">
             <p className="text-sm text-grayish mr-4">&copy; {new Date().getFullYear()} Your Company, Inc. All rights reserved.</p>
             <div id="contact" className="flex space-x-4">
-              <a href="https://www.facebook.com/nour.zehi.18" className="text-grayish hover:text-primary">
-                <FaFacebook size={20} />
+            <a href="https://www.facebook.com/nour.zehi.18" className="text-grayish hover:text-primary">
+              <FontAwesomeIcon className='w-6 h-6' icon="fa-brands fa-facebook" />
               </a>
               <a href="https://www.instagram.com" className="text-grayish hover:text-primary">
-                <FaInstagram size={20} />
+              <FontAwesomeIcon className='w-6 h-6' icon="fa-brands fa-instagram" />
               </a>
               <a href="https://twitter.com/home" className="text-grayish hover:text-primary">
-                <FaTwitter size={20} />
-              </a>
-              <a href="#" className="text-grayish hover:text-primary">
-                <FaTiktok size={20} />
+              <FontAwesomeIcon className='w-6 h-6' icon="fa-brands fa-square-x-twitter" />
               </a>
             </div>
           </div>

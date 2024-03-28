@@ -14,6 +14,21 @@ const Login = () => {
     let fieldsState = {};
     fields.forEach(field=>fieldsState[field.id]='');
     const [loginState,setLoginState]=useState(fieldsState);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     const [activationLoginError, setActivationLoginError] = useState(false);
     const navigate = useNavigate();
 
@@ -23,7 +38,6 @@ const Login = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      console.log(loginState)
       login(loginState)
       .then(success => {
         if (success) {

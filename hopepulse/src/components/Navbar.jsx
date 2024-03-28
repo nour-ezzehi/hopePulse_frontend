@@ -61,7 +61,7 @@ const Navbar = ({ scrollToTop }) => {
         <ul className="flex space-x-4 mr-4">
           <li>
             <button onClick={toggleDropdown} className="text-primary hover:text-grayish flex items-center">
-              Donate for {showDropdown ? <ChevronUpIcon className="h-5 w-5 inline-block" /> : <ChevronDownIcon className="h-5 w-5 inline-block" />}
+              <span className='mr-1'>Donate for</span> {showDropdown ? <ChevronUpIcon className="h-5 w-5 inline-block" /> : <ChevronDownIcon className="h-5 w-5 inline-block" />}
             </button>
             {showDropdown && (
               <div className="absolute z-10 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">

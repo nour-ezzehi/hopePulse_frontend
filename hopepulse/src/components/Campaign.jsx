@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for programmatic navigation
 
-const Campaign = ({ campaign, cardClassName, titleClassName, categoryIconClassName, descriptionClassName, detailsClassName, labelClassName, phoneNumberClassName, hoverClassName }) => {
-  const { id, name, category, story, telephone_number } = campaign;
+const Campaign = ({ campaign, cardClassName, titleClassName, categoryIconClassName, storyClassName, donationsAreaClassName, labelClassName, organisedForClassName, hoverClassName, amountClassName, donationsClassName }) => {
+  const { id, name, category, story } = campaign;
   const navigate = useNavigate(); // Initialize useNavigate hook
   const [isHovered, setIsHovered] = useState(false);
 
@@ -13,14 +13,13 @@ const Campaign = ({ campaign, cardClassName, titleClassName, categoryIconClassNa
   };
 
   return (
-    <div 
+    <div
       className={`cursor-pointer ${cardClassName} ${isHovered ? hoverClassName : ''}`} 
       onMouseEnter={() => setIsHovered(true)} 
       onMouseLeave={() => setIsHovered(false)} 
       onClick={handleCampaignClick}
     >
-      <div className="content">
-        <h3 className={titleClassName}>{name}</h3>
+        <span className={titleClassName}>{name}</span>
         <div className={categoryIconClassName}>
           {/* Display category icon based on the category */}
           {category === 'medical' && (
@@ -43,12 +42,12 @@ const Campaign = ({ campaign, cardClassName, titleClassName, categoryIconClassNa
           )}
           {/* Add other category icons similarly */}
         </div>
-        <p className={descriptionClassName}>{story}</p>
-        <div className={detailsClassName}>
-          <p className={labelClassName}><img src='../images/phone-call.png' alt="Phone Icon" className="w-4 -mt-1 mr-2 h-4 inline-block" />Telephone Number:</p>
-          <p className={phoneNumberClassName}>{telephone_number}</p>
+        <div className={organisedForClassName}><span className='text-lg font-semibold underline mr-2'>organised for: </span><span className='text-lg'>{campaign.beneficiary}</span></div>
+        <p className={storyClassName}>{story}</p>
+        <div className={donationsAreaClassName}>
+          <div className={amountClassName}><span>{campaign.current_amount_raised} <span className='text-lg'>raised</span></span></div>
+          <div className={donationsClassName}><span className='text-lg'>donations:</span><span>  {campaign.num_of_donations}</span></div>
         </div>
-      </div>
     </div>
   );
 }

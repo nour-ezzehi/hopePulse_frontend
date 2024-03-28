@@ -23,7 +23,6 @@ const Home = () => {
         });
         
         if (Array.isArray(response.data.results)) {
-          console.log(response.data.results)
           setCampaigns(response.data.results);
           setTotalPages(response.data.total_pages);
         } else {
@@ -38,25 +37,26 @@ const Home = () => {
     // Redirect to the single campaign page with the campaign ID
     navigate(`/campaign/${id}`);
   };
-
+console.log(campaigns)
   return (
     <>
-    <div className='flex flex-row w-4/5 mb-40'>
-    <div className='mt-12 ml-12 mb-8'>
+    <div className='flex flex-row mb-40 mx-auto'>
+    <div className='mt-12 mb-8 w-9/12 ml-8'>
       <h1 className='text-3xl mb-8 font-semibold'>Discover these campaigns, be a hope Ambassador. Donate now!</h1>
-      <div className='bg-fafafa flex flex-col space-y-8'>
+      <div className='flex flex-row space-x-4'>
         {campaigns.map(campaign => (
           <Campaign
             key={campaign.id}
             campaign={campaign}
-            cardClassName="border border-primary border-2 rounded-lg p-4 relative flex flex-col"
-            titleClassName="text-2xl font-semibold text-primary mb-4 border-primary border-b-2"
+            cardClassName="border border-primary border-2 rounded-lg p-4 relative flex flex-col basis-1/3"
+            titleClassName="text-2xl font-bold text-primary text-center border-primary border-b-2 block mb-4"
+            organisedForClassName="text-grayish mb-8"
             categoryIconClassName="absolute top-0 right-0"
-            descriptionClassName="text-grayish mb-24 text-xl"
-            detailsClassName="flex items-start text-xl"
-            labelClassName="text-grayish mr-2"
-            phoneNumberClassName="text-primary mt-auto"
+            storyClassName="text-grayish mb-12 text-xl"
             hoverClassName="bg-gray-100"
+            donationsAreaClassName="flex flex-row justify-between absolute bottom-0"
+            donationsClassName=""
+            amountClassName="mr-32"
             onClick={() => handleCampaignClick(campaign.id)}
           />
         ))}
@@ -82,7 +82,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-    <div className='w-1/5 mt-12'>
+    <div className='w-3/12 mt-12'>
     <DonateFor />
       </div>
     </div>
